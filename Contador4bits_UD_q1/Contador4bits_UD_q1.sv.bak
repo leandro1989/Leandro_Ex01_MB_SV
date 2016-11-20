@@ -1,0 +1,21 @@
+module Contador4bits_UD_q1(input logic resert, clock,
+							output logic [3:0]saida);
+							logic ciclo;
+							
+always_ff @(posedge clock)
+
+	begin
+	
+		if (resert)
+			saida <= 4'd0;
+		if (saida == 4'd0)
+			ciclo = 0;
+		else if (saida == 4'd15)
+			ciclo = 1;
+		if (ciclo == 0)
+			saida <= saida + 4'd1;
+		else
+			saida <= saida - 4'd1;
+			
+		end
+endmodule
