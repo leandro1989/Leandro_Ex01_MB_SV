@@ -1,12 +1,12 @@
-module Contador4bits_UD_q2(input logic resert, clock,
+module Contador4bits_UD_q2(input logic reset, clock,
 							output logic [3:0]saida);
 							logic ciclo;
 							
-always_ff @(posedge clock)
+always_ff @(posedge clock or posedge reset)
 
 	begin
 	
-	if (resert)
+	if (reset)
 		begin
 		saida <= 4'd0;
 		ciclo <= 0;

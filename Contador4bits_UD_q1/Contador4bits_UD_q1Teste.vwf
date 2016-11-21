@@ -43,7 +43,7 @@ SIGNAL("clock")
 	PARENT = "";
 }
 
-SIGNAL("resert")
+SIGNAL("reset")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
@@ -118,16 +118,15 @@ TRANSITION_LIST("clock")
 	}
 }
 
-TRANSITION_LIST("resert")
+TRANSITION_LIST("reset")
 {
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 70.0;
 		LEVEL 1 FOR 50.0;
-		LEVEL 0 FOR 120.0;
-		LEVEL 1 FOR 90.0;
-		LEVEL 0 FOR 730.0;
+		LEVEL 0 FOR 870.0;
 	}
 }
 
@@ -178,7 +177,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "resert";
+	CHANNEL = "reset";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 1;
